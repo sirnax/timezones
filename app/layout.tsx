@@ -11,6 +11,12 @@ const dmSans = DM_Sans({ subsets: ['latin'], variable: '--font-sans' })
 const jakartaSans = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-display' })
 const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono' })
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : 'http://localhost:3000')
+
 export const metadata: Metadata = {
   title: 'WorldClock — Interactive Time Zone Map',
   description: 'Explore world time zones, compare times across capital cities, and plan across time zones with an interactive map.',
@@ -23,7 +29,7 @@ export const metadata: Metadata = {
     description: 'Explore world time zones, compare times across capital cities, and plan across time zones with an interactive map.',
     images: ['/og-image.png'],
   },
-  metadataBase: new URL(process.env.NEXTAUTH_URL || 'http://localhost:3000'),
+  metadataBase: new URL(siteUrl),
 }
 
 export default function RootLayout({
@@ -33,9 +39,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <script src="https://apps.abacus.ai/chatllm/appllm-lib.js" />
-      </head>
       <body className={`${dmSans.variable} ${jakartaSans.variable} ${jetbrainsMono.variable} font-sans`}>
         <ThemeProvider
           attribute="class"
