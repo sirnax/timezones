@@ -1,3 +1,5 @@
+'use client';
+
 import dynamic from 'next/dynamic';
 
 const TimezoneMapApp = dynamic(() => import('./components/timezone-map-app'), {
