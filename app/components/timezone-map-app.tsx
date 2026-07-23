@@ -52,6 +52,7 @@ export default function TimezoneMapApp() {
 
   // Client-only init
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional one-time client-only init after mount
     setMounted(true);
     setFavourites(loadFavourites());
     const tz = getUserTimezone();
