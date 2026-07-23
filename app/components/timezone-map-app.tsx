@@ -166,7 +166,7 @@ export default function TimezoneMapApp() {
             utcDate={utcDate}
           />
           {/* Offset legend */}
-          <div className="absolute bottom-4 left-4 bg-gray-900/80 backdrop-blur-sm border border-gray-700/50 rounded-lg p-3 z-10">
+          <div className="absolute bottom-4 left-4 bg-gray-900/80 backdrop-blur-xs border border-gray-700/50 rounded-lg p-3 z-10">
             <p className="text-[10px] text-gray-400 mb-1.5 font-medium">UTC Offset</p>
             <div className="flex items-center gap-0">
               {Array.from({ length: 14 }, (_, i: number) => {

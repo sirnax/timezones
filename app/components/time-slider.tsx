@@ -81,7 +81,7 @@ export default function TimeSlider({
                   ));
                 }
               }}
-              className="bg-gray-800 border border-gray-700 text-white text-xs rounded px-2 py-1.5 font-mono focus:outline-none focus:border-cyan-500"
+              className="bg-gray-800 border border-gray-700 text-white text-xs rounded px-2 py-1.5 font-mono focus:outline-hidden focus:border-cyan-500"
             />
           </div>
 
@@ -91,7 +91,7 @@ export default function TimeSlider({
             <select
               value={referenceTimezone ?? 'UTC'}
               onChange={(e: React.ChangeEvent<HTMLSelectElement>) => onTimezoneChange(e?.target?.value ?? 'UTC')}
-              className="bg-gray-800 border border-gray-700 text-white text-xs rounded px-2 py-1.5 focus:outline-none focus:border-cyan-500 max-w-[180px]"
+              className="bg-gray-800 border border-gray-700 text-white text-xs rounded px-2 py-1.5 focus:outline-hidden focus:border-cyan-500 max-w-[180px]"
             >
               {(commonTimezones ?? []).map((tz: string) => {
                 const d = selectedDate ?? new Date();

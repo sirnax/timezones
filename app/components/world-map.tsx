@@ -205,7 +205,7 @@ export default function WorldMap({ capitals, favourites, onToggleFavourite, utcD
       />
       {tooltip && (
         <div
-          className="absolute pointer-events-none z-50 bg-gray-900/95 border border-cyan-500/30 text-white text-xs px-3 py-2 rounded-lg shadow-lg backdrop-blur-sm"
+          className="absolute pointer-events-none z-50 bg-gray-900/95 border border-cyan-500/30 text-white text-xs px-3 py-2 rounded-lg shadow-lg backdrop-blur-xs"
           style={{
             left: `${tooltip?.x ?? 0}px`,
             top: `${tooltip?.y ?? 0}px`,

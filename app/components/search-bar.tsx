@@ -56,7 +56,7 @@ export default function SearchBar({ capitals, favourites, onToggleFavourite }: S
           onFocus={() => setIsOpen(true)}
           placeholder="Search cities..."
           className="w-full bg-gray-800/80 border border-gray-700/50 text-white text-sm rounded-lg pl-10 pr-4 py-2
-            placeholder-gray-500 focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/20 transition-all"
+            placeholder-gray-500 focus:outline-hidden focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/20 transition-all"
         />
       </div>
 
