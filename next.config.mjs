@@ -1,3 +1,5 @@
+import { withSerwist } from '@serwist/turbopack';
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   poweredByHeader: false,
@@ -8,4 +10,4 @@ const nextConfig = {
   images: { unoptimized: true },
 };
 
-module.exports = nextConfig;
+export default withSerwist(nextConfig);

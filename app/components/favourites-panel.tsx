@@ -41,9 +41,9 @@ export default function FavouritesPanel({
   if ((favourites ?? []).length === 0) {
     return (
       <div className="flex flex-col items-center justify-center h-full py-12 px-4 text-center">
-        <Star className="w-10 h-10 text-cyan-500/40 mb-4" />
+        <Star className="w-10 h-10 text-cyan-500/40 mb-4" aria-hidden="true" />
         <p className="text-sm text-gray-400">No favourites yet</p>
-        <p className="text-xs text-gray-500 mt-1">Click on a city marker on the map to add it here</p>
+        <p className="text-xs text-gray-400 mt-1">Select a city marker on the map to add it here</p>
       </div>
     );
   }
@@ -69,10 +69,11 @@ export default function FavouritesPanel({
               <div className="flex items-start justify-between">
                 <div className="flex items-center gap-2 min-w-0">
                   {isDay ? (
-                    <Sun className="w-4 h-4 text-yellow-400 shrink-0" />
+                    <Sun className="w-4 h-4 text-yellow-400 shrink-0" aria-hidden="true" />
                   ) : (
-                    <Moon className="w-4 h-4 text-blue-300 shrink-0" />
+                    <Moon className="w-4 h-4 text-blue-300 shrink-0" aria-hidden="true" />
                   )}
+                  <span className="sr-only">{isDay ? 'daytime' : 'night-time'}</span>
                   <div className="min-w-0">
                     <p className="text-sm font-medium text-white truncate">{cap?.city ?? ''}</p>
                     <p className="text-xs text-gray-400 truncate">{cap?.country ?? ''}</p>
@@ -80,10 +81,10 @@ export default function FavouritesPanel({
                 </div>
                 <button
                   onClick={() => onToggleFavourite(key)}
-                  className="opacity-0 group-hover:opacity-100 text-gray-500 hover:text-red-400 transition-all p-1"
+                  className="text-gray-400 hover:text-red-400 focus-visible:text-red-400 transition-colors p-1.5"
                   aria-label={`Remove ${cap?.city ?? ''}`}
                 >
-                  <X className="w-3.5 h-3.5" />
+                  <X className="w-3.5 h-3.5" aria-hidden="true" />
                 </button>
               </div>
               <div className="mt-2 flex items-end justify-between">
@@ -93,7 +94,7 @@ export default function FavouritesPanel({
                 </div>
                 <div className="text-right">
                   <p className="text-xs font-semibold text-cyan-400">{abbr}</p>
-                  <p className="text-[11px] text-gray-500 font-mono">{formatUtcOffset(offset)}</p>
+                  <p className="text-[11px] text-gray-400 font-mono">{formatUtcOffset(offset)}</p>
                   {dst && (
                     <span className="text-[10px] bg-amber-500/20 text-amber-400 px-1.5 py-0.5 rounded font-medium">
                       DST

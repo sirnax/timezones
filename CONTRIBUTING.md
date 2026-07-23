@@ -1,4 +1,4 @@
-# Contributing to WorldClock
+# Contributing to Time Zones
 
 Thanks for your interest in contributing! This is a small project, so the process is deliberately lightweight.
 
@@ -9,16 +9,16 @@ Thanks for your interest in contributing! This is a small project, so the proces
 3. Install dependencies and start the dev server:
 
    ```bash
-   npm install
-   npm run dev
+   pnpm install
+   pnpm dev
    ```
 
 4. Open http://localhost:3000 and verify the map renders.
 
 ## Before opening a PR
 
-- Run `npm run lint` and fix any issues.
-- Run `npm run build` to make sure the production build succeeds — CI runs both on every PR.
+- Run `pnpm lint` and fix any issues.
+- Run `pnpm build` to make sure the production build succeeds — CI runs both on every PR.
 - There is no test suite yet; if you add one, that would be a very welcome contribution.
 
 ## Guidelines

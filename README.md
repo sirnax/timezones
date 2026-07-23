@@ -1,4 +1,4 @@
-# 🌍 WorldClock
+# 🌍 Time Zones
 
 An interactive world timezone map. Every country is shaded by its UTC offset, ~250 capital cities show their current local time, and a time slider lets you scrub the clock to see how times shift across the globe — complete with a live day/night terminator.
 
@@ -15,7 +15,10 @@ An interactive world timezone map. Every country is shaded by its UTC offset, ~2
 - **Day/night terminator** — a live overlay showing which parts of the planet are in darkness
 - **LIVE mode** — clocks auto-refresh every 30 seconds
 - **City search** — quickly find any capital by city or country name
-- **Favourites** — star cities to keep them in a sidebar, persisted in `localStorage`
+- **Favourites** — star cities to keep them in a sidebar (bottom drawer on mobile), persisted in `localStorage`
+- **Fully responsive** — works from small phones to large desktops; the map re-fits its container live
+- **Installable PWA** — add to home screen, works offline via a precaching service worker
+- **Accessible** — WCAG 2.1 AA: keyboard-operable map markers, ARIA combobox search, visible focus, reduced-motion support
 
 ## Tech Stack
 
@@ -31,24 +34,30 @@ Requires **Node.js 24+** (see [.nvmrc](.nvmrc)).
 
 ```bash
 nvm use          # or install Node 24 any way you like
-npm install
-npm run dev      # → http://localhost:3000
+pnpm install
+pnpm dev      # → http://localhost:3000
 ```
 
 Production build:
 
 ```bash
-npm run build
-npm start
+pnpm build
+pnpm start
 ```
 
 Linting:
 
 ```bash
-npm run lint
+pnpm lint
 ```
 
-> **Note:** the map fetches world geometry at runtime from the jsDelivr CDN ([`world-atlas@2`](https://www.jsdelivr.com/package/npm/world-atlas)), so the app needs network access to render the map.
+Accessibility tests (Playwright + axe-core; builds must exist — run `pnpm build` first):
+
+```bash
+pnpm test:a11y
+```
+
+> **Note:** world geometry ([`world-atlas@2`](https://www.jsdelivr.com/package/npm/world-atlas)) is vendored at `public/data/countries-110m.json` and precached by the service worker, so the map renders offline after the first visit.
 
 ## Configuration
 
